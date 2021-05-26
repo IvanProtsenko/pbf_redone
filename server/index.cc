@@ -1,4 +1,5 @@
 #include <nan.h>
+#include <string>
 
 void Get(const Nan::FunctionCallbackInfo<v8::Value>& info) {
   v8::Local<v8::Context> context = info.GetIsolate()->GetCurrentContext();
@@ -10,7 +11,7 @@ void Get(const Nan::FunctionCallbackInfo<v8::Value>& info) {
     arr[i] = arr[i-1] + arr[i-2];
   }
   int num = arr[fib];
-  info.GetReturnValue().Set(num);
+  info.GetReturnValue().Set(std::to_string(num));
 }
 
 void Add(const Nan::FunctionCallbackInfo<v8::Value>& info) {
